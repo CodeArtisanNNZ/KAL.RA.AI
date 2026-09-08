@@ -34,6 +34,8 @@ class KalraBrain:
             "get_system_info": get_system_info, "read_clipboard": read_clipboard,
             "write_clipboard": write_clipboard, "lock_computer": lock_computer,
             "open_website": open_website,
+            "remember": remember,
+            "recall": recall,
         }
 
     @staticmethod
