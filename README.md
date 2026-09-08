@@ -1,84 +1,85 @@
-# KAL.RA AI v0.3
+# KAL.RA AI v0.5 — Universal Windows + Local Memory
 
-Private, personal and local Windows assistant with short commands.
+KAL.RA automatically detects the current Windows username and standard folders.
+It has no hard-coded `C:\Users\name` path. VS Code and Chrome are detected from
+common installation locations, and known projects are searched for safely.
 
-## Start
+> Universal means Windows 10/11 computers. Hardware-specific features such as
+> brightness may still depend on the laptop driver and display.
 
-Open this folder in Terminal and run:
+## Install and start
+
+Extract the ZIP, open the extracted folder in Terminal, then run:
 
 ```powershell
 python -m pip install -r requirements.txt
 python app.py
 ```
 
-The included configuration already uses the Windows username `nusai`.
-Project folders still use `D:\Projects`; change those three paths in
-`config.json` if your projects are stored elsewhere.
-
-## Quick commands
+## Compact command list
 
 ```text
 APPS
-calc            Calculator
-note            Notepad
-code            VS Code
-files           File Explorer
-terminal        Windows Terminal
-cmd             Command Prompt
-paint           Paint
-settings        Windows Settings
-tasks           Task Manager
-edge            Microsoft Edge
-chrome          Google Chrome
+calc | note | code | files | terminal | cmd | powershell
+paint | settings | tasks | edge | chrome | camera | snip | clock | control
 
 PROJECTS
-kishan          Open Kishan Bari in VS Code
-bujhi           Open Bujhi in VS Code
-portfolio       Open Portfolio in VS Code
+kishan | bujhi | portfolio
+
+FOLDERS
+home | desktop folder | documents | downloads | pictures | videos | music | recycle
 
 SYSTEM
-shot            Take screenshot
-battery         Battery percentage
-volume          Current volume
-vol 40          Set volume to 40%
-mute            Mute sound
-unmute          Unmute sound
-brightness      Current brightness
-bright 50       Set brightness to 50%
-time            Current date and time
-storage         C drive storage
-system          Windows and Python information
-lock            Lock computer (asks first)
+shot | battery | volume | vol 40 | mute | unmute
+brightness | bright 50 | time | storage | system | cpu | ram | wifi | ip
 
-MEDIA
-play            Play or pause
-pause           Play or pause
-next            Next track
-prev            Previous track
+MEDIA AND WINDOWS
+play | pause | next | prev
+desktop | minimize | maximize | close window
 
-WEBSITES
-youtube         Open YouTube
-github          Open GitHub
-gmail           Open Gmail
-google          Open Google
+POWER (confirmation required)
+lock | sleep | restart | shutdown | sign out
 
-FILES AND CLIPBOARD
-find CSE 330    Find matching files
-file D:\path\note.pdf
-folder Research Create a folder (asks first)
-copy hello      Copy "hello"
-paste           Read clipboard (asks first)
+WEB
+youtube | github | gmail | google
+google soil testing bangladesh
+
+FILES
+find CSE 330
+file C:\path\note.pdf
+folder Research
+
+CLIPBOARD
+copy hello
+paste
+
+MEMORY
+remember my favorite browser is Chrome
+what is my favorite browser
+memories
+forget my favorite browser
 ```
 
-Type `help` inside KAL.RA to display this compact command guide.
+Use `help`, `commands`, or `?` inside KAL.RA to show the list.
 
-## Safety boundary
+## Universal configuration
 
-KAL.RA only executes registered tools. It cannot delete files, reveal passwords,
-edit the Registry, install software, or run arbitrary text as terminal code.
-File operations are limited to folders listed in `config.json`.
+`{HOME}` in `config.json` becomes the current user's Windows home automatically.
+KAL.RA searches Desktop, Documents, Downloads, and `D:\Projects` for the known
+project names. If a project uses a different name or location, put its full path
+in the relevant `projects` value.
 
-## Tests
+## Safety
+
+The assistant uses a fixed tool allowlist. It does not accept arbitrary shell
+commands, delete files, install software, reveal passwords, or edit the Registry.
+Closing windows and power commands require confirmation because unsaved work can
+be lost.
+
+Personal memory is stored locally in `memory/assistant.db` using SQLite. The
+database is ignored by Git, so private memories are not uploaded to GitHub.
+
+## Test
 
 ```powershell
 python -m unittest discover -s tests -v

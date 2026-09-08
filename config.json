@@ -1,0 +1,23 @@
+{
+  "allowed_folders": [
+    "{HOME}\\Desktop",
+    "{HOME}\\Documents",
+    "{HOME}\\Downloads",
+    "{HOME}\\Pictures",
+    "{HOME}\\Videos",
+    "{HOME}\\Music",
+    "D:\\Projects"
+  ],
+  "project_search_folders": [
+    "{HOME}\\Desktop",
+    "{HOME}\\Documents",
+    "{HOME}\\Downloads",
+    "D:\\Projects"
+  ],
+  "projects": {
+    "kishan_bari": "",
+    "bujhi": "",
+    "portfolio": ""
+  },
+  "screenshots_folder": "{HOME}\\Pictures\\KAL.RA Screenshots"
+}
