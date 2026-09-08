@@ -102,7 +102,7 @@ class KalraBrain:
                 if phrase in text:
                     return ToolCall("open_project", {"project": project})
 
-        websites = {"youtube": "youtube", "github": "github", "gmail": "gmail", "google": "google"}
+        websites = {"youtube": "youtube", "git": "github", "gmail": "gmail", "google": "google"}
         if text in websites:
             return ToolCall("open_website", {"website": websites[text]})
         if text.startswith("open "):
@@ -158,6 +158,6 @@ Apps: calc | note | code | files | terminal | cmd | paint | settings | tasks | e
 Projects: kishan | bujhi | portfolio
 System: shot | battery | volume | vol 40 | mute | unmute | bright 50 | time | storage | system | lock
 Media: play | pause | next | prev
-Web: youtube | github | gmail | google
+Web: youtube | github | git | gmail | google
 Files: find CSE 330 | file D:\\path\\note.pdf | folder Research
 Clipboard: copy hello | paste"""
