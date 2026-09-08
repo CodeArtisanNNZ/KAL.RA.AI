@@ -54,3 +54,29 @@ def get_memory(memory_key):
         return None
 
     return result[0]
+
+
+def get_all_memories():
+    with connect() as connection:
+        results = connection.execute(
+            """
+            SELECT memory_key, memory_value
+            FROM memories
+            ORDER BY updated_at DESC
+            """
+        ).fetchall()
+
+    return results
+
+
+def delete_memory(memory_key):
+    with connect() as connection:
+        cursor = connection.execute(
+            """
+            DELETE FROM memories
+            WHERE memory_key = ?
+            """,
+            (memory_key,),
+        )
+
+    return cursor.rowcount > 0
