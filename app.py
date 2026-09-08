@@ -1,9 +1,12 @@
 from brain import KalraBrain
+from memory.database import initialize_database
 
 
-def main() -> None:
+def main():
+    initialize_database()
     brain = KalraBrain()
-    print("KAL.RA AI v0.3")
+
+    print("KAL.RA AI")
     print("Private. Personal. Local.")
     print("Type 'help' for commands or 'exit' to close.\n")
 
@@ -16,6 +19,7 @@ def main() -> None:
 
         if not message:
             continue
+
         if message.lower() in {"exit", "quit", "bye"}:
             print("KAL.RA > Goodbye.")
             break
