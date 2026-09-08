@@ -5,7 +5,7 @@ from typing import Any, Callable
 from security.permissions import PermissionPolicy
 from tools.apps import close_app, open_app
 from tools.files import create_folder, find_file, open_file
-from tools.projects import open_project
+from tools.memory_tools import recall, remember
 from tools.system import (
     get_battery, get_brightness, get_storage, get_system_info, get_time,
     get_volume, lock_computer, media_control, read_clipboard, set_brightness,
