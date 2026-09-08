@@ -12,7 +12,31 @@ class PermissionDecision:
 class PermissionPolicy:
     ALLOWED_APPS = {"calculator", "notepad", "vscode", "explorer", "terminal", "command_prompt", "paint", "settings", "task_manager", "edge", "chrome"}
     ALLOWED_PROJECTS = {"kishan_bari", "bujhi", "portfolio"}
-    SAFE_TOOLS = {"find_file", "open_file", "take_screenshot", "get_battery", "get_volume", "set_volume", "set_mute", "get_brightness", "set_brightness", "media_control", "get_time", "get_storage", "get_system_info", "write_clipboard", "open_website"}
+      SAFE_TOOLS = {
+        "find_file",
+        "open_file",
+        "open_folder",
+        "search_web",
+        "take_screenshot",
+        "get_battery",
+        "get_volume",
+        "set_volume",
+        "set_mute",
+        "get_brightness",
+        "set_brightness",
+        "media_control",
+        "get_time",
+        "get_storage",
+        "get_system_info",
+        "get_performance",
+        "get_network",
+        "get_wifi",
+        "window_control",
+        "write_clipboard",
+        "open_website",
+        "remember",
+        "recall",
+    }
     CONFIRM_TOOLS = {"close_app", "create_folder", "read_clipboard", "lock_computer"}
 
     def check(self, tool: str, arguments: dict[str, Any], confirmed: bool = False) -> PermissionDecision:
