@@ -44,6 +44,32 @@ class KalraBrain:
 
     def understand(self, message: str) -> ToolCall | None:
         text = self._clean(message)
+                remember_match = re.fullmatch(
+            r"remember (?:that )?(.+?) is (.+)",
+            text,
+        )
+
+        if remember_match:
+            return ToolCall(
+                "remember",
+                {
+                    "key": remember_match.group(1).strip(),
+                    "value": remember_match.group(2).strip(),
+                },
+            )
+
+        recall_match = re.fullmatch(
+            r"(?:what is|recall) (?:my )?(.+)",
+            text,
+        )
+
+        if recall_match:
+            return ToolCall(
+                "recall",
+                {
+                    "key": recall_match.group(1).strip(),
+                },
+            )
 
         short_exact = {
             "shot": ToolCall("take_screenshot", {}), "screenshot": ToolCall("take_screenshot", {}),
