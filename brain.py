@@ -159,5 +159,5 @@ Projects: kishan | bujhi | portfolio
 System: shot | battery | volume | vol 40 | mute | unmute | bright 50 | time | storage | system | lock
 Media: play | pause | next | prev
 Web: youtube | github | git | gmail | google
-Files: find CSE 330 | file D:\\path\\note.pdf | folder Research
+Files: find filename  | file D:\\path\\note.pdf | folder Research
 Clipboard: copy hello | paste"""
